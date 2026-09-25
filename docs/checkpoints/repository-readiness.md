@@ -2,24 +2,27 @@
 
 Date: 2026-09-25
 
-Scope: pre-publication verification and local repository preparation only. No GitHub repository was created, no commit was pushed, and no cloud account, Routine, schedule, or email connector was used.
+Scope: local security verification and GitHub publication. No Claude Cloud account was connected, and no Routine, schedule, or email connector was created or used.
 
 ## Result
 
-Two independent local Git repositories are ready for the final publication approval:
+Two independent repositories were published under the verified GitHub account `moguzgco`:
 
-- Public implementation: `<LOCAL_WORKSPACE>/job-search-agent`
+- Public implementation: `https://github.com/moguzgco/job-search-agent`
   - Branch: `main`
-  - Remote: none
-  - Intended GitHub visibility: public
-- Private working repository: `<LOCAL_WORKSPACE>/my-job-search`
+  - Initial published commit: `70b08087ab851be8009a5f89bbc62c4a28a8535e`
+  - Verified GitHub visibility: `PUBLIC`
+  - Verified GitHub fork status: `false`
+- Private working repository: `https://github.com/moguzgco/my-job-search`
   - Branch: `claude/job-search-state`
-  - Fetch-only `upstream`: the local public repository
+  - Initial published commit: `8fe8e868c6e3d165df17b4a4aab857a7f616f423`
+  - Verified GitHub visibility: `PRIVATE`
+  - Verified GitHub fork status: `false`
+  - Fetch-only `upstream`: the public GitHub repository
   - `upstream` push URL: `DISABLED`
-  - `remote.pushDefault`: `origin`, which is intentionally absent until approval
-  - Intended GitHub visibility: private
+  - `remote.pushDefault`: `origin`
 
-The repositories have separate Git directories and no object alternates. The private repository shares reusable commit ancestry so it can merge upstream changes, but it is not a local linked worktree or clone that borrows objects. The future GitHub private repository must be created with `gh repo create`, not as a fork.
+The repositories have separate Git directories and no object alternates. The private repository shares reusable commit ancestry so it can merge upstream changes, but it is not a local linked worktree or clone that borrows objects. GitHub confirms that it was created independently rather than as a fork.
 
 The private repository contains placeholder-only candidate inputs, empty history/run state, and no resume or generated job report. Fifty explicit `<TODO: ...>` markers remain for the user. Synthetic demonstration facts were not copied into the real candidate paths.
 
@@ -123,22 +126,23 @@ The readiness document itself formerly contained an account-specific absolute lo
 
 ## Final remote configuration
 
-Before GitHub creation, the expected remote output is:
-
 Public repository:
 
 ```text
-(no remotes)
+origin  https://github.com/moguzgco/job-search-agent.git (fetch)
+origin  https://github.com/moguzgco/job-search-agent.git (push)
 ```
 
 Private repository:
 
 ```text
-upstream  <LOCAL_WORKSPACE>/job-search-agent/. (fetch)
+origin    https://github.com/moguzgco/my-job-search.git (fetch)
+origin    https://github.com/moguzgco/my-job-search.git (push)
+upstream  https://github.com/moguzgco/job-search-agent.git (fetch)
 upstream  DISABLED (push)
 ```
 
-The private repository also sets `remote.pushDefault=origin`. Until the approved private `origin` is added, an unqualified `git push` therefore fails rather than selecting the public upstream. Even an explicit `git push upstream` fails because its push URL is `DISABLED`.
+The private repository sets `remote.pushDefault=origin`. An unqualified push therefore targets the private repository, while an explicit `git push upstream` fails because its push URL is `DISABLED`.
 
 ## Placeholder private configuration
 
@@ -232,51 +236,31 @@ History is merged by stable job ID without deleting existing entries. A complete
 | Concurrent runs overwrite state | Require the first `started` push as the lock and stop on every non-fast-forward rejection |
 | Cloud-local work mistaken for persistence | Treat only confirmed commits on the private remote branch as durable |
 
-## GitHub CLI status
+## GitHub publication verification
 
-The GitHub CLI (`gh`) is not installed in the current environment, so authentication could not be checked. Installing it and running `gh auth login` would connect an external account and are outside this checkpoint. No GitHub API call or repository creation occurred.
+GitHub CLI 2.101.0 was installed through Homebrew. Interactive authentication completed for the user-confirmed account `moguzgco`; no credential value was written to this repository.
 
-## Exact GitHub publication commands
+Both repositories were created without `--push`. Visibility and fork status were queried before either first push:
 
-Run these only after explicit approval, after installing `gh`, and after `gh auth status` confirms the intended account. Replace `<GITHUB_OWNER>` and `<LOCAL_WORKSPACE>` literally with the approved owner and local parent directory.
+| Repository | Visibility | Fork | Default branch | Initial published commit |
+|---|---|---|---|---|
+| `moguzgco/job-search-agent` | `PUBLIC` | `false` | `main` | `70b08087ab851be8009a5f89bbc62c4a28a8535e` |
+| `moguzgco/my-job-search` | `PRIVATE` | `false` | `claude/job-search-state` | `8fe8e868c6e3d165df17b4a4aab857a7f616f423` |
 
-### Public repository
+Immediately after each first push, `git ls-remote` and the GitHub branches API returned the same commit as the local branch. Each repository had only its intended branch. The public security gate was repeated immediately before creation and found:
 
-```sh
-cd <LOCAL_WORKSPACE>/job-search-agent
-gh auth status
-gh repo create <GITHUB_OWNER>/job-search-agent --public --source=. --remote=origin
-gh repo view <GITHUB_OWNER>/job-search-agent --json nameWithOwner,visibility,isFork
-git push -u origin main
-```
+- exactly 25 expected tracked files;
+- no root candidate, data, report, credential, environment, or resume paths;
+- no non-neutral reachable commit metadata;
+- no account-specific path, obvious credential, token, or private-key pattern in reachable history;
+- a clean worktree and valid object graph.
 
-The `repo view` result must show `visibility: PUBLIC` and `isFork: false` before the first push.
-
-### Private repository
-
-```sh
-cd <LOCAL_WORKSPACE>/my-job-search
-gh auth status
-gh repo create <GITHUB_OWNER>/my-job-search --private --source=. --remote=origin
-gh repo view <GITHUB_OWNER>/my-job-search --json nameWithOwner,visibility,isFork
-git remote set-url upstream https://github.com/<GITHUB_OWNER>/job-search-agent.git
-git remote set-url --push upstream DISABLED
-git config remote.pushDefault origin
-git push -u origin claude/job-search-state
-gh repo edit <GITHUB_OWNER>/my-job-search --default-branch claude/job-search-state
-```
-
-The `repo view` result must show `visibility: PRIVATE` and `isFork: false` before the first push. After pushing, re-run `git remote -v` and verify that only `origin` has a usable push URL.
-
-These commands intentionally omit `--push` from `gh repo create`, keeping repository creation and first push as separate, inspectable actions.
+This publication record is necessarily committed after the two initial branch tips listed above. Its enclosing commit cannot self-record its own hash; final post-record remote tips are verified and reported at handoff.
 
 ## Remaining approval gates
 
-1. User reviews this final local audit and explicitly approves GitHub repository creation.
-2. GitHub CLI installation and authentication are completed separately.
-3. The public repository is created public and its visibility/non-fork status is verified before pushing.
-4. The private repository is created private and its visibility/non-fork status is verified before pushing.
-5. Private profile, preferences, and configuration TODOs are completed with verified information before cloud testing.
-6. Cloud connection, manual cloud runs, email authorization, and scheduling remain separate approval gates.
+1. User reviews the publication results and separately approves Claude Cloud configuration.
+2. Private profile, preferences, and configuration TODOs are completed with verified information before cloud testing.
+3. Claude Cloud connection, manual cloud runs, email authorization, and scheduling remain separately gated.
 
-No remote action is authorized by this document.
+No Claude Cloud, Routine, schedule, or email action is authorized by this publication record.
