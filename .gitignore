@@ -1,0 +1,24 @@
+# Private candidate material and operational state
+/candidate/
+/data/
+/reports/
+
+# Local configuration, credentials, and secrets
+/.env
+/.env.*
+*.local.md
+credentials/
+secrets/
+*.pem
+*.key
+*.p12
+*.token
+/.claude/settings.local.json
+/.private-staging/
+
+# Common local/editor artifacts
+.DS_Store
+.idea/
+.vscode/
+
+# Demonstration fixtures are intentionally versionable and contain no real person data.

@@ -1,0 +1,125 @@
+{
+  "fixture_notice": "Qualitative results for the synthetic demonstration candidate.",
+  "run_id": "demo-2026-09-25-run-1",
+  "candidate_sources": [
+    "fixtures/demo/candidate/profile.md",
+    "fixtures/demo/candidate/preferences.md"
+  ],
+  "resume_read": false,
+  "results": [
+    {
+      "job_id": "lever:getmidas:536b118f-21c2-4467-b893-c5dc3c90e9ca",
+      "classification": "strong_match",
+      "mandatory_requirements": [
+        {
+          "requirement": "Remote work in Turkey",
+          "status": "verified",
+          "candidate_evidence": "Candidate is located and authorized to work in Turkey and requires remote work.",
+          "job_evidence": "Listing header states Turkey and Remote."
+        },
+        {
+          "requirement": "Experience with reliable distributed and transactional systems",
+          "status": "verified",
+          "candidate_evidence": "Seven years backend experience including distributed, event-driven, transactional systems and production operations.",
+          "job_evidence": "Listing requires scalable reliable systems, transactional flows, concurrency, and data consistency."
+        }
+      ],
+      "matching_reasons": [
+        "Senior product-engineering scope aligns with verified backend ownership and mentoring.",
+        "Turkey-remote permanent role matches location, authorization, remote, and contract preferences.",
+        "Fintech, incident response, observability, event-driven systems, and production reliability are verified candidate strengths."
+      ],
+      "significant_gaps": [],
+      "unresolved_eligibility": [],
+      "exclusion_reason": null
+    },
+    {
+      "job_id": "lever:insiderone:ee932b8c-0e12-45c1-8c1a-1ec95c4e623c",
+      "classification": "potential_match",
+      "mandatory_requirements": [
+        {
+          "requirement": "Daily professional coding-agent use and end-to-end ownership",
+          "status": "verified",
+          "candidate_evidence": "Profile explicitly verifies daily Claude Code/Codex use and tool-calling workflows with state, recovery, and human review.",
+          "job_evidence": "Listing makes daily coding-agent use and an end-to-end agent-assisted project mandatory."
+        },
+        {
+          "requirement": "Strong engineering fundamentals",
+          "status": "verified",
+          "candidate_evidence": "Profile verifies production backend ownership, testing-related operations, incident response, and distributed systems.",
+          "job_evidence": "Listing requires clean code, testing, error handling, security, and performance judgment."
+        }
+      ],
+      "matching_reasons": [
+        "Turkey-remote full-time arrangement matches the candidate's location and remote constraint.",
+        "Verified agent workflow and context-discipline experience directly matches the role."
+      ],
+      "significant_gaps": [
+        "The role is broad AI-native product engineering rather than the preferred senior backend focus.",
+        "No production Go or PHP/Laravel experience is verified, although the listing calls these preferred rather than mandatory."
+      ],
+      "unresolved_eligibility": [],
+      "exclusion_reason": null
+    },
+    {
+      "job_id": "greenhouse:kalepa:5737333004",
+      "classification": "eligibility_review",
+      "mandatory_requirements": [
+        {
+          "requirement": "5+ years software engineering and client integrations",
+          "status": "verified",
+          "candidate_evidence": "Profile verifies seven years and ownership of external APIs and third-party integrations.",
+          "job_evidence": "Listing asks for 5+ years, ideally with external APIs or third-party integrations."
+        },
+        {
+          "requirement": "Python, AWS/serverless, async workflows, and relational databases",
+          "status": "verified",
+          "candidate_evidence": "Profile verifies Python, Lambda, EC2, asynchronous workflows, and PostgreSQL.",
+          "job_evidence": "Listing explicitly requests these technologies."
+        },
+        {
+          "requirement": "Eligible B2B/contractor engagement from country of residence",
+          "status": "uncertain",
+          "candidate_evidence": "Candidate can contract from Turkey and is authorized there.",
+          "job_evidence": "Listing says Europe full remote and European hires are B2B/contractors, but does not explicitly confirm Turkey is an accepted hiring country."
+        }
+      ],
+      "matching_reasons": [
+        "Direct senior-backend, Python, API integration, AWS, async, and PostgreSQL alignment.",
+        "The candidate accepts full-time B2B work from Turkey."
+      ],
+      "significant_gaps": [],
+      "unresolved_eligibility": [
+        "Confirm that Kalepa's Europe contractor scope includes a person working from Turkey."
+      ],
+      "exclusion_reason": null
+    },
+    {
+      "job_id": "greenhouse:a11:8003120002",
+      "classification": "not_recommended",
+      "mandatory_requirements": [
+        {
+          "requirement": "Fully onsite work in Berlin",
+          "status": "not_met",
+          "candidate_evidence": "Candidate requires remote work and will not relocate.",
+          "job_evidence": "Listing requires support in the Berlin office and asks about fully onsite work."
+        },
+        {
+          "requirement": "Deep Java/Spring Boot expertise",
+          "status": "not_met",
+          "candidate_evidence": "Profile lists only introductory Java maintenance and no Spring Boot production expertise.",
+          "job_evidence": "Listing requires deep Java 21/Spring Boot 3 expertise."
+        }
+      ],
+      "matching_reasons": [
+        "Some Python, PostgreSQL, AWS, distributed-systems, and leadership experience overlaps."
+      ],
+      "significant_gaps": [
+        "Mandatory onsite arrangement conflicts with preferences.",
+        "Mandatory deep Java/Spring expertise is not met."
+      ],
+      "unresolved_eligibility": [],
+      "exclusion_reason": "Remote-work exclusion and mandatory Java/Spring qualification gap."
+    }
+  ]
+}

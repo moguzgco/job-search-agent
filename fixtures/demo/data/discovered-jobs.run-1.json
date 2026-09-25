@@ -1,0 +1,124 @@
+{
+  "fixture_notice": "Snapshot of real public listings for an isolated demonstration; not live production state.",
+  "run_id": "demo-2026-09-25-run-1",
+  "searched_at": "2026-09-25T12:00:00+03:00",
+  "limits": {
+    "max_search_queries": 4,
+    "max_pages_per_source": 2,
+    "max_jobs_evaluated": 4
+  },
+  "queries_executed": 4,
+  "sources_attempted": 2,
+  "source_failures": [],
+  "jobs": [
+    {
+      "job_id": "lever:getmidas:536b118f-21c2-4467-b893-c5dc3c90e9ca",
+      "original_url": "https://jobs.lever.co/getmidas/536b118f-21c2-4467-b893-c5dc3c90e9ca",
+      "normalized_url": "https://jobs.lever.co/getmidas/536b118f-21c2-4467-b893-c5dc3c90e9ca",
+      "source": "Lever public job page",
+      "title": "Senior Software Engineer",
+      "employer": "Midas",
+      "location": "Turkey",
+      "publication_date": null,
+      "publication_date_evidence": null,
+      "remote_status": "remote",
+      "remote_evidence": "The listing header says Turkey, Permanent Full-Time, Remote.",
+      "contract_type": "Permanent Full-Time",
+      "requirements": [
+        "Strong software development foundation",
+        "Scalable and reliable systems experience",
+        "Distributed systems, concurrency, and data consistency knowledge",
+        "Transactional systems and critical data flows",
+        "Event-driven and asynchronous architecture familiarity",
+        "Production monitoring and mentoring ability"
+      ],
+      "eligibility_evidence": [
+        "Location is stated as Turkey.",
+        "The listing does not state a separate citizenship or sponsorship condition."
+      ],
+      "discovered_at": "2026-09-25T12:01:00+03:00"
+    },
+    {
+      "job_id": "greenhouse:kalepa:5737333004",
+      "original_url": "https://job-boards.greenhouse.io/kalepa/jobs/5737333004?gh_src=1810c22e4us",
+      "normalized_url": "https://job-boards.greenhouse.io/kalepa/jobs/5737333004",
+      "source": "Greenhouse public job page",
+      "title": "Senior Backend Engineer - Client integrations (Europe)",
+      "employer": "Kalepa",
+      "location": "Europe (Full Remote)",
+      "publication_date": null,
+      "publication_date_evidence": null,
+      "remote_status": "remote",
+      "remote_evidence": "The listing header says Europe (Full Remote).",
+      "contract_type": "B2B agreement or contractor in Europe",
+      "requirements": [
+        "5+ years of software engineering",
+        "External APIs or third-party integrations experience",
+        "Python or a strong object-oriented background",
+        "AWS/serverless and asynchronous workflows",
+        "Relational databases, ideally PostgreSQL",
+        "Authorization to work in the European country of residence",
+        "No visa sponsorship"
+      ],
+      "eligibility_evidence": [
+        "The application says European hires are B2B or contractors.",
+        "It asks whether the applicant is authorized in the European country where they live.",
+        "It does not explicitly say whether a contractor working from Turkey is accepted."
+      ],
+      "discovered_at": "2026-09-25T12:02:00+03:00"
+    },
+    {
+      "job_id": "lever:insiderone:ee932b8c-0e12-45c1-8c1a-1ec95c4e623c",
+      "original_url": "https://jobs.lever.co/insiderone/ee932b8c-0e12-45c1-8c1a-1ec95c4e623c",
+      "normalized_url": "https://jobs.lever.co/insiderone/ee932b8c-0e12-45c1-8c1a-1ec95c4e623c",
+      "source": "Lever public job page",
+      "title": "Software Engineer - (AI Native)",
+      "employer": "Insider One",
+      "location": "Turkey",
+      "publication_date": null,
+      "publication_date_evidence": null,
+      "remote_status": "remote",
+      "remote_evidence": "The listing header says Turkey, Full-Time (Remote), Remote.",
+      "contract_type": "Full-Time",
+      "requirements": [
+        "Daily professional use of coding agents",
+        "An end-to-end project delivered with coding agents",
+        "Tool calling, multi-step workflow, state, error recovery, and human-review experience",
+        "Context discipline and strong engineering fundamentals",
+        "Go and PHP/Laravel are preferred, but other languages are accepted"
+      ],
+      "eligibility_evidence": [
+        "The location is stated as Turkey.",
+        "The listing does not state a separate citizenship or sponsorship condition."
+      ],
+      "discovered_at": "2026-09-25T12:03:00+03:00"
+    },
+    {
+      "job_id": "greenhouse:a11:8003120002",
+      "original_url": "https://job-boards.greenhouse.io/projectaservicesgmbhcokg/jobs/8003120002",
+      "normalized_url": "https://job-boards.greenhouse.io/projectaservicesgmbhcokg/jobs/8003120002",
+      "source": "Greenhouse public job page",
+      "title": "Senior Backend Engineer (m/f/d)",
+      "employer": "A11",
+      "location": "Berlin",
+      "publication_date": null,
+      "publication_date_evidence": null,
+      "remote_status": "onsite",
+      "remote_evidence": "The listing requires support in the Berlin office and asks whether the applicant is open to working fully onsite in Berlin.",
+      "contract_type": null,
+      "requirements": [
+        "7+ years of backend engineering",
+        "Deep Java and Spring Boot expertise",
+        "Strong familiarity with Python",
+        "Distributed systems and PostgreSQL",
+        "AWS cloud-native infrastructure",
+        "Fully onsite work in Berlin"
+      ],
+      "eligibility_evidence": [
+        "The application asks about employer sponsorship.",
+        "The listing requires fully onsite work in Berlin."
+      ],
+      "discovered_at": "2026-09-25T12:04:00+03:00"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "reported_jobs": {
+    "lever:getmidas:536b118f-21c2-4467-b893-c5dc3c90e9ca": {
+      "original_url": "https://jobs.lever.co/getmidas/536b118f-21c2-4467-b893-c5dc3c90e9ca",
+      "normalized_url": "https://jobs.lever.co/getmidas/536b118f-21c2-4467-b893-c5dc3c90e9ca",
+      "first_reported_at": "2026-09-25T12:10:00+03:00",
+      "run_id": "demo-2026-09-25-run-1",
+      "report_path": "fixtures/demo/reports/2026-09-25-run-1.md"
+    },
+    "lever:insiderone:ee932b8c-0e12-45c1-8c1a-1ec95c4e623c": {
+      "original_url": "https://jobs.lever.co/insiderone/ee932b8c-0e12-45c1-8c1a-1ec95c4e623c",
+      "normalized_url": "https://jobs.lever.co/insiderone/ee932b8c-0e12-45c1-8c1a-1ec95c4e623c",
+      "first_reported_at": "2026-09-25T12:10:00+03:00",
+      "run_id": "demo-2026-09-25-run-1",
+      "report_path": "fixtures/demo/reports/2026-09-25-run-1.md"
+    },
+    "greenhouse:kalepa:5737333004": {
+      "original_url": "https://job-boards.greenhouse.io/kalepa/jobs/5737333004?gh_src=1810c22e4us",
+      "normalized_url": "https://job-boards.greenhouse.io/kalepa/jobs/5737333004",
+      "first_reported_at": "2026-09-25T12:10:00+03:00",
+      "run_id": "demo-2026-09-25-run-1",
+      "report_path": "fixtures/demo/reports/2026-09-25-run-1.md"
+    }
+  }
+}

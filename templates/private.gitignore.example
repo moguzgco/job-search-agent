@@ -1,0 +1,38 @@
+# PRIVATE REPOSITORY ONLY
+# Copy this file to .gitignore in my-job-search before adding personal files.
+# Never copy the resulting private .gitignore back to the public repository.
+
+# Track only the approved private candidate files.
+/candidate/*
+!/candidate/profile.md
+!/candidate/preferences.md
+!/candidate/config.md
+!/candidate/resume.pdf
+
+# Track only durable JSON state. Temporary writes stay untracked.
+/data/*
+!/data/reported-jobs.json
+!/data/run-state.json
+/data/*.tmp
+/data/*.bak
+
+# Track completed Markdown reports, not temporary drafts.
+/reports/*
+!/reports/*.md
+/reports/*.tmp
+
+# Never track credentials or local secret material, even privately.
+/.env
+/.env.*
+credentials/
+secrets/
+*.pem
+*.key
+*.p12
+*.token
+/.claude/settings.local.json
+
+# Common local/editor artifacts.
+.DS_Store
+.idea/
+.vscode/
