@@ -33,6 +33,7 @@
 - Successful history: `data/reported-jobs.json`
 - Run ledger: `data/run-state.json`
 - Report directory: `reports/`
+- Resume unresolved runs automatically: `false`
 - Resume uncertain sends automatically: `false`
 
 ## Cloud Git persistence

@@ -75,7 +75,9 @@ When a policy succeeds, merge new entries into `reported-jobs.json` without repl
 
 Cloud files are not durable merely because they were written in a run. When `candidate/config.md` selects Git persistence, the configured private branch is the source of truth. It must use the `claude/` prefix and be the private repository's default branch; the recommended name is `claude/job-search-state`.
 
-At run start, fast-forward that branch from `origin`, verify a clean worktree, and push a commit containing the new `started` ledger entry before discovery. Treat that first push as an optimistic lock. If it is rejected or the branch has diverged, stop without discovery or delivery. Never force-push and never resolve a concurrent update automatically.
+At run start, fast-forward that branch from `origin`, verify a clean worktree, and inspect the ledger. Stop if any earlier run remains `started`, `report_written`, `send_started`, `sent`, or `delivery_uncertain`; a new session cannot safely prove that the earlier session has stopped. A person may mark a verified pre-send failure `interrupted` or `failed`. Any send-related state requires provider reconciliation first.
+
+After that check, push a commit containing the new `started` ledger entry before discovery. Treat that first push as an optimistic lock. If it is rejected or the branch has diverged, stop without discovery or delivery. Never force-push and never resolve a concurrent update automatically.
 
 Persistence order depends on delivery policy:
 

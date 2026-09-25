@@ -251,7 +251,7 @@ The cloud checkout is disposable. Only a confirmed push to private `origin/claud
 
 1. Confirm/switch to `claude/job-search-state`.
 2. Fetch and fast-forward only from the same remote branch.
-3. Stop if the worktree is dirty, the branch diverged, or a relevant prior run is `send_started`/`delivery_uncertain`.
+3. Stop if the worktree is dirty, the branch diverged, or any prior run remains unresolved (`started`, `report_written`, `send_started`, `sent`, or `delivery_uncertain`). A person must reconcile it first.
 4. Write a unique run ID and `started` status to `data/run-state.json`.
 5. Commit that one state transition and push it.
 6. Treat a non-fast-forward rejection as an overlap lock failure. Stop before web discovery or email.
@@ -275,9 +275,10 @@ If the connector response is ambiguous, record and push `delivery_uncertain` whe
 ### Failed commits, pushes, and conflicts
 
 - Commit failure: do not send; inspect the run log and Git identity/configuration.
-- Initial lock push rejected: assume overlap or user update; stop without side effects.
+- Initial lock push rejected: assume overlap or user update; stop without side effects. The remote branch remains authoritative.
 - Completion push rejected: do not auto-merge; preserve the session link and reconcile locally.
 - Push fails after confirmed email send: remote state remains `send_started`; treat as uncertain and do not resend.
+- Stale `started` or `report_written`: do not reclaim automatically. After confirming no earlier session is active and no send began, a person may commit `interrupted` or `failed`, then start a new run.
 - Merge conflict: pause the Routine, resolve locally in the private clone, validate JSON, and push the repaired state branch.
 - Network/GitHub outage: no push means no durable success. Do not rely on the cloud worktree for the next run.
 

@@ -8,7 +8,7 @@ Read `candidate/config.md`, `candidate/profile.md`, and `candidate/preferences.m
 
 ## Run sequence
 
-1. When cloud Git persistence is configured, acquire the run lock on the configured `claude/` state branch before discovery; stop on a rejected push or uncertain earlier send.
+1. When cloud Git persistence is configured, acquire the run lock on the configured `claude/` state branch before discovery; stop on a rejected push or any unresolved earlier run.
 2. Validate the private inputs and establish a run key and run ID.
 3. For discovery only, load `instructions/discovery.md`; search within the configured bounds and retain original URLs and source evidence.
 4. Remove current-run duplicates and jobs already in successful history.
